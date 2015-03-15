@@ -1,6 +1,10 @@
 # nil-conditional
 
-Nil Conditional Operator in Ruby
+Nil Conditional Operator in Ruby.
+
+## Summary
+
+This gem introduces Nil Conditional Operator (`_?`) in Ruby, similar to Null Conditional Operator in C# 6.0.
 
 ## Installation
 
