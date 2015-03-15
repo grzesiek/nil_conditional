@@ -34,6 +34,14 @@ empty_object_?
 
 non_existent_object_?
 => nil
+
+"test_string".sub_?("_string", '_case')
+=> "test_case"
+
+:test_string.sub_?("string", "case")
+=> nil
+
+
 ```
 
 ## License
