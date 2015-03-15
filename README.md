@@ -41,7 +41,8 @@ non_existent_object_?
 :test_string.sub_?("string", "case")
 => nil
 
-
+Object.foo_?.bar_?.car_?.cow_?
+=> nil
 ```
 
 ## License
