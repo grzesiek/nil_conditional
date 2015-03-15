@@ -25,14 +25,11 @@ Or install it yourself as:
 ## Usage
 
 ```ruby
-empty_object = Object.new
-empty_object.non_existent_method_?
+object = Object.new
+object.non_existent_method_?
 => nil
 
-empty_object_?
-=> #<Object:0x00000002d89170> 
-
-non_existent_object_?
+non_existent_method_?
 => nil
 
 "test_string".sub_?("_string", '_case')
