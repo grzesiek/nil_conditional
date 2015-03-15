@@ -25,11 +25,11 @@ empty_object = Object.new
 empty_object.non_existent_method_?
 => nil
 
-nil._?
-=> nil
-
-empty_object._?
+empty_object_?
 => #<Object:0x00000002d89170> 
+
+non_existent_object_?
+=> nil
 ```
 
 ## License
