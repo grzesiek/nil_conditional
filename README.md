@@ -1,35 +1,28 @@
 # nil-conditional
 
-Nil Conditional Operator in Ruby.
+Nil Conditional Operator in Ruby (`_?`).
 
-## Summary
+This is my approach to create Nil Conditional Operator in Ruby. 
 
-This gem introduces Nil Conditional Operator (`_?`) in Ruby, similar to Null Conditional Operator in C# 6.0.
+This is very simple, and it is merely an experiment, so use it on your own risk.
+
+Nil Conditional Operator is inspired by Null Conditional Operator introduced in C# 6.0.
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'nil_conditional'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install nil_conditional
+`nil_conditional` is gemified and available on RubyGems.
 
 ## Usage
 
 ```ruby
-object = Object.new
-object.non_existent_method_?
-=> nil
 
 non_existent_method_?
+=> nil
+
+Object.new.non_existent_method
+NoMethodError: undefined method `non_existent_method' for #<Object:0x007f74eec002c8>
+
+Object.new.non_existent_method_?
 => nil
 
 "test_string".sub_?("_string", '_case')
