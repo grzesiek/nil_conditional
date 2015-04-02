@@ -56,7 +56,7 @@ __new_object.foo.bar.car_?.cow_?
 => nil
 ```
 
-`NilConditional` instanced return always new NilConditional object if method is missing.
+`NilConditional` instances always return new NilConditional object if method is missing.
 These objects are also `eql` to `nil`.
 
 
@@ -64,8 +64,8 @@ These objects are also `eql` to `nil`.
 
 * Changes from version with major 0
 
-  Previous version didn't support methods with special characters and there was no support for local variables
-  Previous version used trailing `_?` as NilConditional operator. Current version uses preceding double underscore character `__`.
+  * Previous version didn't support methods with special characters and there was no support for local variables.
+  * Previous version used trailing `_?` as NilConditional operator. Current version uses preceding double underscore character `__`.
 
 
 ## Discussion
