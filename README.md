@@ -16,8 +16,8 @@ Nil Conditional Operator is inspired by Null Conditional Operator introduced in 
 
 ## Usage
 
-Use preceding double underscore (`__`) for methods (for ex. `__method`)
-Use preceding double underscore and trailing block for local variables  (for ex. `__var{}`)
+Use `?_` method as Nil Conditional Operator.
+For example: `logger._?.log('some debug information')`
 
 ```ruby
 
@@ -25,42 +25,48 @@ Use preceding double underscore and trailing block for local variables  (for ex.
 logger.foo.bar.car.cow
 NoMethodError: undefined method `foo` for #<NilClass>
 
-# logger is nil or doesn't exist
-__logger{}.foo.bar.car.cow
+# logger is nil
+logger._?.foo.bar.car.cow
 => #<NilConditional>
 
-# object exists and all methods are valid
-__object{}.foo.bar.car.cow
+# logger exists and all methods are valid
+logger._?.foo.bar.car.cow
+=> "moooo"
+
+# logger exists and all methods are valid
+logger._?.foo.bar.car.cow
 => "moooo"
 
 # logger exists but doesn't have warn method
-logger.__warn('some warning')
+logger._?.warn('some warning')
 => #<NilConditional>
 
-__non_existent_local_variable{}
-=> #<NilConditional>
+# logger exists and have warn method, but foo is invalid
+logger._?.warn('some warning').foo
+=> NoMethodError: undefined method `foo`
 
-__non_existent_method
+logger._?.warn('some warning')._?.foo
 => #<NilConditional>
 
 Object.new.non_existent_method
 NoMethodError: undefined method `non_existent_method` for #<Object>
 
-Object.new.__non_existent_method
+Object.new._?.non_existent_method
 => #<NilConditional>
 
-Object.new.__non_existent_method.nil?
+Object.new._?.non_existent_method.nil?
 => true
-
-__new_object.foo.bar.car_?.cow_?
-=> nil
 ```
 
-`NilConditional` instanced return always new NilConditional object if method is missing.
+`NilConditional` instances always return new NilConditional object if method is missing.
 These objects are also `eql` to `nil`.
 
 
 ## Changelog
+
+* Changes from version with major 1
+
+  Previous version used different syntax
 
 * Changes from version with major 0
 
@@ -71,6 +77,7 @@ These objects are also `eql` to `nil`.
 ## Discussion
 
 Feel free to submit ideas via issues and discuss better solution to Nil Conditional Operator in Ruby
+
 
 ## License
 
