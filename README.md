@@ -29,37 +29,36 @@ NoMethodError: undefined method `foo` for #<NilClass>
 logger._?.foo.bar.car.cow
 => #<NilConditional>
 
-# logger exists and all methods are valid
+# logger is not nil and all methods are valid
 logger._?.foo.bar.car.cow
 => "moooo"
 
-# logger exists and all methods are valid
-logger._?.foo.bar.car.cow
-=> "moooo"
-
-# logger exists but doesn't have warn method
+# logger is not nil but doesn't have warn method
 logger._?.warn('some warning')
 => #<NilConditional>
 
-# logger exists and have warn method, but foo is invalid
+# logger is not nil and have warn method, but foo is invalid
+# - first not nil value returned in train wreck breaks nil condition
 logger._?.warn('some warning').foo
 => NoMethodError: undefined method `foo`
 
+# ... but you can use Nil Conditional again
 logger._?.warn('some warning')._?.foo
 => #<NilConditional>
 
-Object.new.non_existent_method
+# this work also for class methods
+Object.non_existent_method
 NoMethodError: undefined method `non_existent_method` for #<Object>
 
-Object.new._?.non_existent_method
+Object._?.non_existent_method
 => #<NilConditional>
 
+# NilConditional object is eql to nil
 Object.new._?.non_existent_method.nil?
 => true
 ```
 
-`NilConditional` instances always return new NilConditional object if method is missing.
-These objects are also `eql` to `nil`.
+`NilConditional` instances always return new NilConditional object if method is missing. Those objects are also `eql` to `nil`.
 
 
 ## Changelog
