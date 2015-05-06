@@ -16,7 +16,7 @@ Nil Conditional Operator is inspired by Null Conditional Operator introduced in 
 
 ## Usage
 
-Use `?_` method as Nil Conditional Operator.
+Use `_?` method as Nil Conditional Operator.
 For example: `logger._?.log('some debug information')`
 
 ```ruby
@@ -29,7 +29,7 @@ NoMethodError: undefined method `foo` for #<NilClass>
 logger._?.foo.bar.car.cow
 => #<NilConditional>
 
-# logger is not nil and all methods are valid
+# logger is not nil and all corresponding methods exist
 logger._?.foo.bar.car.cow
 => "moooo"
 
@@ -38,15 +38,15 @@ logger._?.warn('some warning')
 => #<NilConditional>
 
 # logger is not nil and have warn method, but foo is invalid
-# - first not nil value returned in train wreck breaks nil condition
+# - first not nil value returned by receiver in train wreck breaks nil condition
 logger._?.warn('some warning').foo
 => NoMethodError: undefined method `foo`
 
-# ... but you can use Nil Conditional again
+# ... but you can use nil conditional again
 logger._?.warn('some warning')._?.foo
 => #<NilConditional>
 
-# this work also for class methods
+# this works also with class methods
 Object.non_existent_method
 NoMethodError: undefined method `non_existent_method` for #<Object>
 
