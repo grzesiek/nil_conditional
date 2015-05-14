@@ -4,11 +4,11 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = 'nil_conditional'
-  spec.version       = '2.0.0'
+  spec.version       = '2.0.1'
   spec.authors       = ['Grzegorz Bizon']
   spec.email         = ['grzegorz.bizon@ntsn.pl']
   spec.summary       = 'Nil Conditional Operator in Ruby'
-  spec.homepage      = 'http://github.com/grzesiek/nil-conditional'
+  spec.homepage      = 'http://github.com/grzesiek/nil_conditional'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0")
