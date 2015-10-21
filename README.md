@@ -1,3 +1,8 @@
+# News 21.10.2015
+
+This proposal will be addressed by introducting native ruby operator `.?` as stated by Matz on 21.10.2015.
+See discussion here: https://bugs.ruby-lang.org/issues/11034#change-54502
+
 # nil-conditional
 
 Nil Conditional Operator in Ruby.
